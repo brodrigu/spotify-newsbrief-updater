@@ -1,0 +1,35 @@
+{
+  "name": "spotify-newsbrief-updater",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run sync",
+    "sync": "babel-node --presets @babel/preset-env src/index.js",
+    "auth": "babel-node --presets @babel/preset-env src/get-token.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brodrigu/spotify-newsbrief-updater.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brodrigu/spotify-newsbrief-updater/issues"
+  },
+  "homepage": "https://github.com/brodrigu/spotify-newsbrief-updater#readme",
+  "dependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.10",
+    "babel-node": "0.0.1-security",
+    "moment": "^2.29.1",
+    "mongodb": "^3.6.3",
+    "node-fetch": "^2.6.1",
+    "spotify-web-api-node": "^5.0.0"
+  },
+  "devDependencies": {
+    "@babel/node": "^7.12.10",
+    "express": "^4.17.1"
+  }
+}
