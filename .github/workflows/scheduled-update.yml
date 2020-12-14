@@ -13,7 +13,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
       - name: Build docker image
-        run: docker build -t newsbrief-updater
+        run: docker build -t newsbrief-updater .
       - name: Run script
         run: docker run newsbrief-updater
         env:
