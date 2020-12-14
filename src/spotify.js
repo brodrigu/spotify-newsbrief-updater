@@ -59,13 +59,16 @@ export const getTokensFromRefreshToken = async(refreshToken) => {
     params.append('client_id', clientId);
     params.append('client_secret', clientSecret);
 
+    try {
     const result = await fetch(`https://accounts.spotify.com/api/token`, {
         method: 'post',
         body: params,
 
     });
-    const newTokens = await result.json();
-    return newTokens;
+    } catch (e) {
+        console.log(e);
+        process.exit(1);
+    }
 }
 
 export const getPlaylist = async () => {

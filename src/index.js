@@ -34,7 +34,12 @@ const run = async () => {
     console.log('all done, lets exit');
     process.exit(0);
 }
-run();
+try {
+    run();
+} catch (e) {
+    console.log(e);
+    process.exit(1);
+}
 
 function exitOnSignal(signal) {
     process.on(signal, function () {
