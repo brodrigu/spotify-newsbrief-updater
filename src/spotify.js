@@ -65,6 +65,11 @@ export const getTokensFromRefreshToken = async(refreshToken) => {
             body: params,
 
         });
+        const newTokens = await result.json();
+        if (newTokens.error) {
+            console.log(newTokens);
+            process.exit(1);
+        }
         return newTokens;
     } catch (e) {
         console.log(e);

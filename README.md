@@ -1,22 +1,6 @@
 # spotify-newsbrief-updater
 
-## Run locally
-Make sure to set env variables for:
-```
-SPOTIFY_CLIENT_ID
-SPOTIFY_CLIENT_SECRET
-MONGO_USERNAME
-MONGO_PASSWORD
-```
-
-Then run:
-
-```
-npm install
-npm start
-```
-
-## Run using Docker
+## Setup Env
 Create an env file:
 
 ```
@@ -26,7 +10,15 @@ MONGO_USERNAME=myMongoUsername
 MONGO_PASSWORD=myMongoPassword" >> local.env
 ```
 
-then run:
+## Run locally
+
+```
+source local.env
+npm install
+npm start
+```
+
+## Run using Docker
 
 ```
 docker build -t spotify-newsbrief-updater . && docker run --env-file=local.env spotify-newsbrief-updater

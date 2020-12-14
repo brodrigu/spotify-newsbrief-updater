@@ -1,7 +1,7 @@
 import { MongoClient } from 'mongodb';
 
-const mongoUser = 'spotify-newbrief-updater';
-const mongoPass = 'GriOTGDo3VlG5OG1';
+const mongoUser = process.env.MONGO_USERNAME;
+const mongoPass = process.env.MONGO_PASSWORD;
 
 const dbName = 'state';
 const mongoUrl = `mongodb+srv://${mongoUser}:${mongoPass}@cluster0.wqqd9.mongodb.net/${dbName}?retryWrites=true&w=majority`;

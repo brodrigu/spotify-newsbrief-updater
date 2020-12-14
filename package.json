@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run sync",
-    "sync": "babel-node --presets @babel/preset-env src/index.js",
+    "sync": "babel-node --unhandled-rejections=strict --presets @babel/preset-env src/index.js",
     "auth": "babel-node --presets @babel/preset-env src/get-token.js"
   },
   "repository": {
