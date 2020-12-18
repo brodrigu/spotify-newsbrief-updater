@@ -90,7 +90,7 @@ export const getPodcastEpisodes = async() => {
             await getEpisodesForShow('6BRSvIBNQnB68GuoXJRCnQ')
         ),
         // LA Times Daily
-        ...await getEpisodesFromLast24Hours(
+        ...await getMostRecentEpisode(
             await getEpisodesForShow('2kAhG92Z7trgwJ96pYGaug')
         ),
         // KQED California Report
@@ -145,7 +145,15 @@ export const emptyPlaylist = async (playlist) => {
     if (!playlist.tracks.items.length) {
         return playlist;
     }
-    await spotifyApi.removeTracksFromPlaylist(playlist.id, playlist.tracks.items.filter(item => item.track).map(item => item.track));
+    try {
+        const tracksToRemove = playlist.tracks.items.filter(item => item.track).map(item => ({ uri: item.track.uri }));
+        await spotifyApi.removeTracksFromPlaylist(playlist.id, tracksToRemove);
+
+    } catch (e) {
+        console.log('caught error');
+        console.log(e);
+        process.exit(1);
+    }
     return await getPlaylist();
 }
 
