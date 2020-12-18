@@ -1,4 +1,7 @@
 # spotify-newsbrief-updater
+Manages a Spotify playlist of short news podcasts including only recent episodes. Includes github action to refresh playlist at relevant intervals.
+
+Created podcast can be viewed here: https://open.spotify.com/playlist/1VG3YBqrsJdFApjL7ZUmTt?si=zoRJgKrgTcSrVTaresWrCA
 
 ## Setup Env
 Create an env file:
