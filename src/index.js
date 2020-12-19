@@ -1,5 +1,5 @@
 
-import { authenticate, getPlaylist, getPodcastEpisodes, emptyPlaylist, addTracksToPlaylist } from './spotify';
+import { authenticate, getPlaylist, getPodcastEpisodes, replaceTracksInPlaylist } from './spotify';
 import { connect, disconnect } from './mongo';
 
 const run = async () => {
@@ -15,18 +15,14 @@ const run = async () => {
     // get the news brief playlist
     console.log('getting playlist');
     let playlist = await getPlaylist();
-    console.log(playlist.tracks.items);
-    // empty the playlist
-    console.log('emptying playlist');
-    playlist = await emptyPlaylist(playlist);
 
     // get tracks to add
     console.log('finding episodes');
     const tracks = await getPodcastEpisodes();
    
-    // add tracks to playlist
+    // replace tracks in the playlist
     console.log('adding episodes to playlist')
-    playlist = await addTracksToPlaylist(tracks, playlist);
+    playlist = await replaceTracksInPlaylist(tracks, playlist);
 
     // cleanup connections
     await disconnect();

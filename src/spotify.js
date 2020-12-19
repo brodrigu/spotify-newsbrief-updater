@@ -162,3 +162,8 @@ export const addTracksToPlaylist = async (tracks, playlist) => {
     return await getPlaylist();
 }
 
+export const replaceTracksInPlaylist = async (tracks, playlist) => {
+    await spotifyApi.replaceTracksInPlaylist(playlist.id, tracks.map(track => track.uri));
+    return await getPlaylist();
+}
+
