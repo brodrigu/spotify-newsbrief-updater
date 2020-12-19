@@ -3,8 +3,8 @@ on:
   workflow_dispatch:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    # every day at 5:28am, 7:28am... times below are in utc
-    - cron:  '28 1,3,5,13,14,17,20,23 * * *'
+    # twice an hour at :12 and :42
+    - cron:  '12,42 * * * *'
 jobs:
   update:
     name: Update News Brief playlist
